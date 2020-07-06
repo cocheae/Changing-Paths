@@ -1,4 +1,5 @@
-# Changing-Paths
+# Changing-Majors
+
 This platform is meant to provide options of possible majors that undergraduates could switch to based on their credits completed and their time left in their university.
 
 This project came about from the time when I was thinking of swithcing majors, but the contraint of time did not give me the opportunity to just blindly switch to any major; I could only switch majors for which I'd graduate on time.  Since my school did not have any tools resembling this, I decided to create it. 
