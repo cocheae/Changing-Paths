@@ -4,27 +4,19 @@
 
 import requests
 from bs4 import BeautifulSoup
-import MySQLdb
+# import MySQLdb
 import mysql.connector
-
 
 config = {
   'user': 'scraping_user',
   'password': '',
-  'host': 'localhost:8889',
-  'database': 'inventory',
+  'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock',
+  'database': 'scraping_sample',
   'raise_on_warnings': True,
 }
 
 link = mysql.connector.connect(**config)
-
-
-#
-# #SQL connection data to connect and save the data in
-# HOST = '127.0.0.1'
-# USERNAME = "scraping_user"
-# PASSWORD = ""
-# DATABASE = "scraping_sample"
+db = link
 
 #URL to be scraped
 url_to_scrape = 'https://howpcrules.com/sample-page-for-web-scraping/'
@@ -63,7 +55,7 @@ language = basic_data_cells[12].text.strip()
 #Save class's base data to the database
 # Open database connection
 # db = MySQLdb.connect(HOST, USERNAME, PASSWORD, DATABASE)
-db = link
+
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 # Prepare SQL query to INSERT a record into the database.
@@ -122,7 +114,9 @@ for table in dates_tables:
             max_participants = cells[9].text.strip()
             #Save event data to database
             # Open database connection
-            db = MySQLdb.connect(HOST, USERNAME, PASSWORD, DATABASE)
+            # db = MySQLdb.connect(HOST, USERNAME, PASSWORD, DATABASE)
+            link = mysql.connector.connect(**config)
+            db = link
             # prepare a cursor object using cursor() method
             cursor = db.cursor()
             # Prepare SQL query to INSERT a record into the database.
