@@ -131,3 +131,8 @@ for table in dates_tables:
                db.rollback()
             # disconnect from server
             db.close()
+
+# command lines that worked:
+# /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
+# sudo lsof -i TCP:3306
+# sudo /usr/local/mysql/support-files/mysql.server start
