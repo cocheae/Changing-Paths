@@ -1,7 +1,10 @@
 # import requests
+import firebase_admin
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from firebase import firebase
+from firebase_admin import credentials
 
 
 driver = webdriver.Chrome(executable_path='/Users/erickcochea/Desktop/Changing-Paths/chromedriver-2')
@@ -31,66 +34,27 @@ name_of_majors = []
 for i in soup.find_all('a'):
     name_of_majors.append(i.text)
 
-links_with_text = []
+# the url to "open the major"
+url_with_text = []
 for a in soup.find_all('a', href=True):
     if a.text:
-        links_with_text.append(a['href'])
+        url_with_text.append(a['href'])
+
+
+# url_of_major for button
+on_click_buttons = []
+for i in url_with_text:
+    on_click_buttons.append(i.split('#')[1])
+
+db_cursor = firebase.FirebaseApplication('https://web-scrapping-de6ca.firebaseio.com/', None)
+
+db_cursor.put('/', 'Name_of_Major', 'URL_Path')
 
 
 
-dic_majors_and_link = {}
-
-
-for i in range(len(name_of_majors)):
-    dic_majors_and_link[name_of_majors[i]] = links_with_text[i]
 
 
 
 
 # close browser
 driver.close()
-
-
-
-
-
-
-
-
-
-
-# <!-----------------scrapcode-------------------------------------------->
-
-
-# all_majors = soup.find("table", {"id": "lsa-programs-list"})
-
-# just_hash_links = all_majors.find_all('a').get('href')
-#
-# just_hash_links = list()
-#
-#
-# for a in all_majors:
-#     just_hash_links.append(all_majors[a].find('a').get('href'))
-#
-#
-
-
-
-# for i in dic_majors_and_link.keys():
-#     print(i, ' ', dic_majors_and_link[i], "\n")
-#
-
-
-
-
-
-
-
-
-# lsa_website = 'https://lsa.umich.edu/lsa/academics/majors-minors'
-# req = requests.get(lsa_website)
-# soup = BeautifulSoup(req.text, "html.parser")
-#
-# # print(soup.prettify)
-#
-# print(soup.find_all('table'))
