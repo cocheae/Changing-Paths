@@ -12,13 +12,7 @@ for i in range(len(name_of_majors)):
 
 
 
-# pressing all major tabs
-for i in on_click_buttons:
-    x_path_majors = "//*[@id=\"{}\"]/td[1]/a".format(i)
-    open_major_btn = driver.find_element_by_xpath(x_path_majors)
-    open_major_btn.click()
 
-new_soup = BeautifulSoup(driver.page_source, "html.parser")
 print(new_soup.prettify())
 
 

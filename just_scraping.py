@@ -1,10 +1,8 @@
 # import requests
-import firebase_admin
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from firebase import firebase
-from firebase_admin import credentials
+
 
 
 driver = webdriver.Chrome(executable_path='/Users/erickcochea/Desktop/Changing-Paths/chromedriver-2')
@@ -29,6 +27,9 @@ time.sleep(5)  # It needs to wait so that the html file updates
 # This looks for the majors-and-minors table
 soup = BeautifulSoup(driver.page_source, "html.parser").table
 
+# # close browser
+# driver.close()
+
 # This looks for all the href values and stores them in a list
 name_of_majors = []
 for i in soup.find_all('a'):
@@ -46,15 +47,16 @@ on_click_buttons = []
 for i in url_with_text:
     on_click_buttons.append(i.split('#')[1])
 
-db_cursor = firebase.FirebaseApplication('https://web-scrapping-de6ca.firebaseio.com/', None)
+# pressing all major tabs
+for i in on_click_buttons:
+    x_path_majors = "//*[@id=\"{}\"]/td[1]/a".format(i)
+    open_major_btn = driver.find_element_by_xpath(x_path_majors)
+    open_major_btn.click()
 
-db_cursor.put('/', 'Name_of_Major', 'URL_Path')
+time.sleep(5)
 
+new_soup = BeautifulSoup(driver.page_source, "html.parser")
 
-
-
-
-
-
-# close browser
-driver.close()
+url_tails = []
+for a in new_soup.find_all('a', href=True, text='REQUIREMENTS'):
+    url_tails.append(a['href'])
