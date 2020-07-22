@@ -20,3 +20,5 @@ for major in range(1, (1 + len(majors))):
     path = '/Major_and_Reqs/{}'.format(majors[i])
     for i in range(1, len(classes)):
         db.post(path, classes[i])
+
+sheet = client.close()
