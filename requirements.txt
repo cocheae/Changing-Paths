@@ -6,7 +6,6 @@ argparse==1.4.0
 gunicorn==19.9.0
 itsdangerous==1.1.0
 requests==2.20.0
-billboard.py==5.3.0
 python-firebase==1.2
 gspread==3.6.0
 gcloud==0.18.3
