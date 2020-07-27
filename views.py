@@ -14,4 +14,6 @@ For every route, you must import it in this file. An example for the starter
 code is given below. Continue adding more as you make more routes.
 """
 
+# from brains import *
+from index import *
 from brains import *

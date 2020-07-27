@@ -1,0 +1,18 @@
+{% extends "website.html" %}
+  {% block content %}
+
+  <p>Based on the classes you've provided:</p>
+  <br>
+  {{input}}
+  <br>
+  <p>These are your majors!!!</p>
+
+  {% if is_list == True %}
+    {% for i in options %}
+      <li>{{i}}</li>
+    {% endfor %}
+  {% else %}
+    <p>{{options}}</p>
+  {% endif %}
+
+  {% endblock %}

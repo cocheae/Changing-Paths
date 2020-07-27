@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  {% block head %}
+  <title>skeleton</title>
+  </style>
+  {% endblock %}
+</head>
+  <body>
+    <h1>Welcome!</h1>
+    <p>Use this tool to determine possible majors you should consider to change
+      (or double-major) based on
+      your completed courses</p>
+
+    <div id="content">
+      {% block content %}
+
+      <form class="classes_field" action="majors" method="post">
+
+        <input type="text" name="classes_input" placeholder="Ex: EECS 203, AAS 309" />
+        <input type="submit"/>
+
+      </form>
+      {% endblock%}
+    </div>
+  </body>
+</html>
