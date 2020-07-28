@@ -10,10 +10,7 @@ db = firebase.FirebaseApplication('https://web-scrapping-de6ca.firebaseio.com/')
 
 # List of all the Majors
 majors = db.get('/scrap', None)
-
 majors = [*majors]  #This unpacts the dictionary into its keys and converts it into a lists
-
-temp = majors
 
 # this is a dictionary with major:list(classes)
 majors_and_reqs = {}
@@ -23,11 +20,9 @@ for i in majors:
     classes = set([*db.get(major, None).values()])
     majors_and_reqs[i] = classes
 
-# pdb.set_trace()
 
 
 def output_majors(classes_of_user):
-    # results = [j for i in classes_of_user for j in majors_and_reqs if i in majors_and_reqs[j]]
     results = set()
 
     for i in classes_of_user:
@@ -39,19 +34,6 @@ def output_majors(classes_of_user):
     if not results:
         return "Classes might not be entered properly"
     return results
-
-
-
-
-#
-# classes = input("Enter Classes: ").split(',')
-#
-#
-# breakpoint()
-# majors = output_majors(classes)
-# print(majors)
-#
-#
 
 
 def is_list(value):
@@ -71,9 +53,6 @@ def func():
         "input": input,
         "is_list": is_list(majors),
         "options": majors,
-        "len": len(majors),
-        "temp": temp,
-        "len_temp": len(temp)
     }
 
 
