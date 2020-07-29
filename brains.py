@@ -2,7 +2,7 @@ from firebase import firebase
 from app import app
 from flask import render_template
 from flask import request
-import pdb
+# import pdb
 # import pprint
 
 
@@ -21,16 +21,13 @@ for i in majors:
     majors_and_reqs[i] = classes
 
 
-
 def output_majors(classes_of_user):
     results = set()
 
     for i in classes_of_user:
         for j in majors_and_reqs:
             if i in majors_and_reqs[j]:
-                # breakpoint()
                 results.add(j)
-
     if not results:
         return "Classes might not be entered properly"
     return results
@@ -58,6 +55,20 @@ def func():
 
     return render_template("majors.html", **data)
 
+
+
+
+# add hyperlinks to the results
+# banner "saying this are ROUGH RECOMENDATIONS, your classes match not necessarily"
+# a small footnote for empty majors
+# you matched 1 out of len(classes)
+
+
+Goals:
+$ find ways to optimize data retrieval - A
+$ add hyperlinks - E
+$ banners - A
+$ pointsystem - E
 
 
 # <!--------------------pseudo Code---------------->

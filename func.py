@@ -9,7 +9,6 @@ def slash_splitter(str_to_split):
     list = []
     for i in range(3):
         str_to_split = str_to_split.replace(str_to_split[-1], '', 1)
-
     for i in range((str_to_split.count('/') + 1)):
         list.append(str_to_split.split('/')[i] + str(class_number))
     return list
@@ -48,11 +47,6 @@ for i in l3:
 post_db(input("Enter Name of Major: "), l2)
 
 
-
-
-
-
-
 def take_input():
     list = []
     start = ""
@@ -62,4 +56,12 @@ def take_input():
             list.append(start)
         else:
             continue
+    return list
+
+
+
+def only_slash(string):
+    list = []
+    for i in range(string.count('/') + 1):
+        list.append(string.split('/')[i])
     return list
