@@ -64,11 +64,11 @@ def func():
 # you matched 1 out of len(classes)
 
 
-Goals:
-$ find ways to optimize data retrieval - A
-$ add hyperlinks - E
-$ banners - A
-$ pointsystem - E
+# Goals:
+# $ find ways to optimize data retrieval - A
+# $ add hyperlinks - E
+# $ banners - A
+# $ pointsystem - E
 
 
 # <!--------------------pseudo Code---------------->
