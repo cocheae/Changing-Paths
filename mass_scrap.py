@@ -1,21 +1,18 @@
-# import time
-# from firebase import firebase
-# from selenium import webdriver
-# from just_scraping import *
-#
-# db_cursor = firebase.FirebaseApplication('https://web-scrapping-de6ca.firebaseio.com/', None)
-#
-# # db_cursor.put('/', 'open_major_url', None)
-#
-# # for i in range(len(name_of_majors)):
-# #     db_cursor.put('/open_major_url', name_of_majors[i].replace('[', '(').replace(']', ')').replace('.', '').replace('/', '_'), url_with_text[i])
-# #     if name_of_majors[i] == 'Biochemistry [B.S.] (Major)':
-# #         db_cursor.put('/open_major_url', 'Biochemistry (B.S.) (Major)', url_with_text[i])
-# #     else:
-# #         db_cursor.put('/open_major_url', name_of_majors[i], url_with_text[i])
-# #
-# db_cursor.put('/', 'scrap', None)
-#
+import time
+from firebase import firebase
+from selenium import webdriver
+from just_scraping import *
+
+db_cursor = firebase.FirebaseApplication('https://web-scrapping-de6ca.firebaseio.com/', None)
+
+# db_cursor.put('/', 'open_major_url', None)
+
+# for i in range(len(name_of_majors)):
+#     db_cursor.put('/open_major_url', name_of_majors[i].replace('[', '(').replace(']', ')').replace('.', '').replace('/', '_'), url_with_text[i])
+#     if name_of_majors[i] == 'Biochemistry [B.S.] (Major)':
+#         db_cursor.put('/open_major_url', 'Biochemistry (B.S.) (Major)', url_with_text[i])
+#     else:
+#         db_cursor.put('/open_major_url', name_of_majors[i], url_with_text[i])
 #
 # for i in range(len(url_tails)):
 #     driver.get('https://lsa.umich.edu{}'.format(url_tails[i]))      # visits page of major

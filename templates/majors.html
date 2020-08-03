@@ -9,7 +9,7 @@
 
   {% if is_list == True %}
     {% for i in options %}
-      <li>{{i}}</li>
+      <a href="{{options[i]}}"><li>{{i}}</li></a>
     {% endfor %}
   {% else %}
     <p>{{options}}</p>

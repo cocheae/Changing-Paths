@@ -9,14 +9,15 @@ from flask import request
 db = firebase.FirebaseApplication('https://web-scrapping-de6ca.firebaseio.com/')
 
 # List of all the Majors
-majors = db.get('/scrap', None)
+majors = db.get('/major_and_req', None)
 majors = [*majors]  #This unpacts the dictionary into its keys and converts it into a lists
+links = db.get('/major_and_link', None)
 
 # this is a dictionary with major:list(classes)
 majors_and_reqs = {}
 
 for i in majors:
-    major = '/scrap/{}'.format(i)
+    major = '/major_and_req/{}'.format(i)
     classes = set([*db.get(major, None).values()])
     majors_and_reqs[i] = classes
 
@@ -33,6 +34,14 @@ def output_majors(classes_of_user):
     return results
 
 
+def majors_and_links(majors):
+    major_and_link = {}
+    for i in majors:
+        major_and_link[i] = links[i]
+
+    return major_and_link
+
+
 def is_list(value):
     return isinstance(value, set)
 
@@ -44,32 +53,19 @@ def func():
 
     # breakpoint()
     majors = output_majors(user_classes)
+
+    options = majors_and_links(majors)
+
     # print(majors)
 
     data = {
         "input": input,
         "is_list": is_list(majors),
-        "options": majors,
+        "options": options,
     }
 
 
     return render_template("majors.html", **data)
-
-
-
-
-# add hyperlinks to the results
-# banner "saying this are ROUGH RECOMENDATIONS, your classes match not necessarily"
-# a small footnote for empty majors
-# you matched 1 out of len(classes)
-
-
-# Goals:
-# $ find ways to optimize data retrieval - A
-# $ add hyperlinks - E
-# $ banners - A
-# $ pointsystem - E
-
 
 # <!--------------------pseudo Code---------------->
 #
