@@ -61,9 +61,14 @@ input[type=text]{
 }
 
 @media only screen and (max-height: 435px) {
-  .container{
-    margin-top: 10%;
+  .w_1{
+    margin-top: 23%;
   }
+
+  .w_2{
+    margin-top: 25%;
+  }
+
 }
 
  /* p, h3{
