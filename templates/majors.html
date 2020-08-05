@@ -1,20 +1,19 @@
 {% extends "website.html" %}
   {% block content %}
 
-  <p>Based on the classes you've provided:</p>
+  <p>Based on the classes you've provided and the classes required for each major as of June 2020, These are your majors!!!</p>
   <br>
   {{input}}
   <br>
-  <p>These are your majors!!!</p>
-
-  {% if is_list == True %}
-    {% for i in options %}
-      <a href="{{options[i]}}" target="_blank"><li>{{i}}</li></a>
-    {% endfor %}
-  {% else %}
-    <p>{{options}}</p>
-  {% endif %}
-
+  <ul>
+    {% if is_list == True %}
+      {% for i in options %}
+        <a href="{{options[i]}}" target="_blank"><li>{{i}}</li></a>
+      {% endfor %}
+    {% else %}
+      <p>{{options}}</p>
+    {% endif %}
+  </ul>
   <br>
   <br>
 
