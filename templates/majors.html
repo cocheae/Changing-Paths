@@ -4,20 +4,27 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='majors.css')}}">
 <div class="container" id="answers">
   <div class="row">
-    <p class="lead" id="advert">Based on the classes you've provided and the classes required for each major as of June 2020, These are your majors!!!</p>
+    <p class="lead" id="advert">Based on the classes you've provided and the classes required for each major as of June 2020.
+      These are your majors along with the number of classes matched to this major.</p>
     <br>
+    <p class="lead">The list of majors is clickable, and will take you to each majors requirements</p>
     <p class="lead">Classes Entered: {{input}}</p>
     <ul class="lead">
       {% if is_list == True %}
-        {% for i in options %}
-          <li><a href="{{options[i]}}" target="_blank">{{i}}</a></li>
+        {% for i in majors %}
+          <li><a href="{{links[i]}}" target="_blank">{{i}}</a>: {{majors[i]}}</li>
         {% endfor %}
       {% else %}
-        <p>{{options}}</p>
+        <p id="return_homepage">Input Invalid, return to <a href="{{homepage}}">homepage</a></p>
       {% endif %}
     </ul>
   </div>
 </div>
+
+
+
+
+
 
 <div class="container">
   <div class="row" id="footer">

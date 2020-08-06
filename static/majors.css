@@ -11,6 +11,7 @@
 
 #advert{
   color: white;
+  margin-right: 21%;
 }
 
 #answers a{
@@ -26,7 +27,9 @@
 #answers .row{
   margin-left: 12%;
 }
-/* 
-@media only screen and () {
 
-} */
+#return_homepage a{
+  background-color: white;
+  color: blue;
+
+}
