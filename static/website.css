@@ -71,53 +71,18 @@ input[type=text]{
 
 }
 
- /* p, h3{
-   color: white;
- }
+@media only screen and (height: 1366px) and (width: 1024px){
+  .w_1{
+    margin-top: 50%;
+    height: 100px;
+    width: 400px;
+  }
 
-h1{
-  font-size: 25pt;
-  font-family: "Helvetica Neue";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 0;
+  .w_2{
+    margin-top: 0%;
+    height: 100px;
+    width: 350px;
+    margin-left: 59%;
+    margin-top: -19%;
+  }
 }
-
-
-
-
-.w_1{
-  width: 540px;
-  height: 1920px;
-  margin: 0px;
-}
-
-.wrapper{
-  position: relative;
-  width: 556px;
-  height: 119px;
-  top: 50%;
-}
-
-.classes_field{
-  font-size: 25pt;
-  top: 10px;
-}
-
-input{
-  border-radius: 26pt;
-  border-color: gray;
-  fill: white;
-  height: 30px;
-  width: 90px;
-} */
-
-
-
-/*
-input[type=submit]{
-  border-bottom-color: white;
-  border-right-color: white;
-  fill: white;
-}
-*/

@@ -1,0 +1,32 @@
+#answers{
+  /* margin: 0; */
+  background-image: url("color.png");
+  background-repeat: repeat;
+  background-size: 50% auto;
+  background-position: top;
+  color: white;
+  width: auto;
+  padding: 2%;
+}
+
+#advert{
+  color: white;
+}
+
+#answers a{
+  color: white;
+  width:auto;
+  overflow: hidden;
+}
+
+#footer{
+  margin-top: 5%;
+}
+
+#answers .row{
+  margin-left: 12%;
+}
+/* 
+@media only screen and () {
+
+} */

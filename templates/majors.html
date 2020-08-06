@@ -1,34 +1,42 @@
 {% extends "website.html" %}
   {% block content %}
-
-  <p>Based on the classes you've provided and the classes required for each major as of June 2020, These are your majors!!!</p>
-  <br>
-  {{input}}
-  <br>
-  <ul>
-    {% if is_list == True %}
-      {% for i in options %}
-        <a href="{{options[i]}}" target="_blank"><li>{{i}}</li></a>
-      {% endfor %}
-    {% else %}
-      <p>{{options}}</p>
-    {% endif %}
-  </ul>
-  <br>
-  <br>
-
-  <hr width="100%" size="1" align="center" color="black">
-
-  <p>Requirements were not possible to collect from the following majors,
-    but should be checked out:</p>
-
-    <ul>
-      <a href="https://lsa.umich.edu/lsa/academics/majors-minors/middle-east-studies-major.html"
-        target="_blank"> <li>General Studies (Major)</li></a>
-      <a href="https://lsa.umich.edu/lsa/academics/majors-minors/history-of-art-major.html"
-        target="_blank"> <li>History of Art (Major)</li></a>
-      <a href="https://lsa.umich.edu/lsa/academics/majors-minors/history-of-art-major.html"
-        target="_blank"> <li>Middle East Studies (Major) </li></a>
+<body>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='majors.css')}}">
+<div class="container" id="answers">
+  <div class="row">
+    <p class="lead" id="advert">Based on the classes you've provided and the classes required for each major as of June 2020, These are your majors!!!</p>
+    <br>
+    <p class="lead">Classes Entered: {{input}}</p>
+    <ul class="lead">
+      {% if is_list == True %}
+        {% for i in options %}
+          <li><a href="{{options[i]}}" target="_blank">{{i}}</a></li>
+        {% endfor %}
+      {% else %}
+        <p>{{options}}</p>
+      {% endif %}
     </ul>
+  </div>
+</div>
 
+<div class="container">
+  <div class="row" id="footer">
+    <p>Requirements were not possible to collect from the following majors,
+      but should be checked out:</p>
+      <ul>
+        <li><a href="https://lsa.umich.edu/lsa/academics/majors-minors/middle-east-studies-major.html"
+          target="_blank"> General Studies (Major)</a></li>
+        <li><a href="https://lsa.umich.edu/lsa/academics/majors-minors/history-of-art-major.html"
+          target="_blank"> History of Art (Major)</a></li>
+        <li><a href="https://lsa.umich.edu/lsa/academics/majors-minors/history-of-art-major.html"
+          target="_blank"> Middle East Studies (Major) </a></li>
+      </ul>
+  </div>
+
+</div>
+
+
+
+
+</body>
   {% endblock %}
