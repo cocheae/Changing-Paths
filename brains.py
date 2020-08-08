@@ -52,7 +52,7 @@ def is_list(value):
 
 @app.route('/majors', methods=['GET', 'POST'])
 def func():
-    input = request.form['classes_input']
+    input = request.form['classes_input'].upper()
     user_classes = input.split(', ')
 
     # returns a dictionary if classes were inputed correctly
